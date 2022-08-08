@@ -31,25 +31,30 @@ module.exports = (env) => {
           ]
         },
         {
+          test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+          // More information here https://webpack.js.org/guides/asset-modules/
+          type: "asset/resource",
+        },
+        {
           test: /\.ts(x)?$/,
           loader: 'ts-loader',
           exclude: /node_modules/
         },
-        {
-          test: /\.svg$/,
-          use: 'file-loader'
-        },
-        {
-          test: /\.png$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                mimetype: 'image/png'
-              }
-            }
-          ]
-        },
+        // {
+        //   test: /\.svg$/,
+        //   use: 'file-loader'
+        // },
+        // {
+        //   test: /\.png$/,
+        //   use: [
+        //     {
+        //       loader: 'url-loader',
+        //       options: {
+        //         mimetype: 'image/png'
+        //       }
+        //     }
+        //   ]
+        // },
       ]
     },
     plugins: [
